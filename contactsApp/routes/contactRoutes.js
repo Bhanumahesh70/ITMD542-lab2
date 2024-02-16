@@ -3,13 +3,14 @@ const router = express.Router();
 const fs = require("fs");
 const path = require("path");
 
-// Read contacts from JSON file
+// Read the contacts from JSON file
 function readContacts() {
   const data = fs.readFileSync(
     path.resolve(__dirname, "..", "data", "contacts.json")
   );
   const contacts = JSON.parse(data);
-  // Filter out contacts that have only 'id' and 'date'
+
+  // Filter out contacts that have only 'id' and 'date' and not display them
   return contacts.filter((contact) => Object.keys(contact).length > 2);
 }
 
@@ -21,15 +22,15 @@ function writeContacts(contacts) {
   );
 }
 
-// GET all contacts
+// GET all contacts 
 router.get("/contacts", function (req, res, next) {
   const contacts = readContacts();
-  res.render("contact/list", { contacts });
+  res.render("contact/display_all_contacts", { contacts });
 });
-// GET create contact form
+// GET create new contact form method
 router.get("/contacts/create", function (req, res, next) {
   const emptyContact = {}; // Create an empty contact object
-  res.render("contact/create", { contact: emptyContact }); // Pass the empty contact object to the template
+  res.render("contact/create_contact", { contact: emptyContact }); // Pass the empty contact object to the template
 });
 // GET contact by ID
 router.get("/contacts/:id", function (req, res, next) {
@@ -41,12 +42,12 @@ router.get("/contacts/:id", function (req, res, next) {
   if (!contact) {
     // Handle case when contact is not found
     //return res.status(404).send("Contact not found");
-    return res.render("contact/deleted",{contacts});
+    return res.render("contact/deleted_contact",{contacts});
   }
-  res.render("contact/show", { contact });
+  res.render("contact/show_contact", { contact });
 });
 
-// POST create contact
+// POST create contact 
 router.post("/contacts", function (req, res, next) {
   const contacts = readContacts();
   const newContact = {
@@ -66,7 +67,7 @@ router.post("/contacts", function (req, res, next) {
 router.get("/contacts/:id/edit", function (req, res, next) {
   const contacts = readContacts();
   const contact = contacts.find((c) => c.id === req.params.id);
-  res.render("contact/edit", { contact });
+  res.render("contact/edit_contact", { contact });
 });
 
 // POST update contact
