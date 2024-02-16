@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1 All Contacts
+  a(href=`/contacts/create`) Create New Contact
   table
     thead
       tr
@@ -17,3 +18,5 @@ block content
           td= contact.email
           td
             a(href=`/contacts/${contact.id}`) View
+
+
