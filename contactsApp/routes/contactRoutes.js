@@ -49,6 +49,15 @@ router.get("/contacts/:id", function (req, res, next) {
 
 // POST create contact 
 router.post("/contacts", function (req, res, next) {
+  // Validation
+  const { firstName, lastName } = req.body;
+  if (!firstName || !lastName) {
+    return res.status(400).send("First Name and Last Name are required");
+  }
+
+  // Sanitization (Removing leading/trailing whitespace)
+  const sanitizedFirstName = firstName.trim();
+  const sanitizedLastName = lastName.trim();
   const contacts = readContacts();
   const newContact = {
     id: Math.random().toString(36).substr(2, 9),
