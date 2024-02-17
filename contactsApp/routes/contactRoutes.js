@@ -2,6 +2,15 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
+const sanitizeHtml = require("sanitize-html");
+const sanitizeConfig = {
+  allowedTags: [],
+  allowedAttributes: {},
+  disallowedTagsMode: 'escape',
+   disallowedTags: ['script', 'style'],
+   allowedAttributes: {}, // No attributes allowed
+   allowedClasses: {} // No classes allowed
+};
 
 // Read the contacts from JSON file
 function readContacts() {
@@ -49,48 +58,74 @@ router.get("/contacts/:id", function (req, res, next) {
 
 // POST create contact 
 router.post("/contacts", function (req, res, next) {
-  // Validation
-  const { firstName, lastName } = req.body;
-  if (!firstName || !lastName) {
-    return res.status(400).send("First Name and Last Name are required");
-  }
+ // Validation
+ const { firstName, lastName, email, notes } = req.body;
+ if (!firstName.trim() || !lastName.trim()) {
+   return res.status(400).send("First Name and Last Name are required");
+ }
 
-  // Sanitization (Removing leading/trailing whitespace)
-  const sanitizedFirstName = firstName.trim();
-  const sanitizedLastName = lastName.trim();
-  const contacts = readContacts();
-  const newContact = {
-    id: Math.random().toString(36).substr(2, 9),
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    notes: req.body.notes,
-    date: new Date().toISOString(),
-  };
-  contacts.push(newContact);
-  writeContacts(contacts);
-  res.redirect("/contacts");
-});
+ // Sanitization (Removing leading/trailing whitespace and HTML/CSS/JavaScript injection)
+ const sanitizedFirstName = sanitizeHtml(firstName.trim(), sanitizeConfig);
+ const sanitizedLastName = sanitizeHtml(lastName.trim(), sanitizeConfig);
+ const sanitizedEmail = sanitizeHtml(email.trim(), sanitizeConfig);
+ const sanitizedNotes = sanitizeHtml(notes.trim(),sanitizeConfig);
 
-// GET edit contact form
-router.get("/contacts/:id/edit", function (req, res, next) {
-  const contacts = readContacts();
-  const contact = contacts.find((c) => c.id === req.params.id);
-  res.render("contact/edit_contact", { contact });
+ const newContact = {
+   id: Math.random().toString(36).substr(2, 9),
+   firstName: sanitizedFirstName,
+   lastName: sanitizedLastName,
+   email: sanitizedEmail,
+   notes: sanitizedNotes,
+   date: new Date().toISOString(),
+ };
+
+ const contacts = readContacts();
+ contacts.push(newContact);
+ writeContacts(contacts);
+ res.redirect("/contacts");
 });
 
 // POST update contact
 router.post("/contacts/:id", function (req, res, next) {
   const contacts = readContacts();
   const index = contacts.findIndex((c) => c.id === req.params.id);
+
+  // If contact not found, return 404
+  if (index === -1) {
+    return res.status(404).send("Contact not found");
+  }
+
+  // Sanitize user input before updating contact
+  const sanitizedFirstName = sanitizeHtml(req.body.firstName.trim(), {
+    disallowedTagsMode: 'escape',
+    disallowedTags: ['script', 'style'],
+    allowedAttributes: {} // No attributes allowed
+  });
+  const sanitizedLastName = sanitizeHtml(req.body.lastName.trim(), {
+    disallowedTagsMode: 'escape',
+    disallowedTags: ['script', 'style'],
+    allowedAttributes: {} // No attributes allowed
+  });
+  const sanitizedEmail = sanitizeHtml(req.body.email.trim(), {
+    disallowedTagsMode: 'escape',
+    disallowedTags: ['script', 'style'],
+    allowedAttributes: {} // No attributes allowed
+  });
+  const sanitizedNotes = sanitizeHtml(req.body.notes.trim(), {
+    disallowedTagsMode: 'escape',
+    disallowedTags: ['script', 'style'],
+    allowedAttributes: {} // No attributes allowed
+  });
+
   contacts[index] = {
     id: req.params.id,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    notes: req.body.notes,
+    firstName: sanitizedFirstName,
+    lastName: sanitizedLastName,
+    email: sanitizedEmail,
+    notes: sanitizedNotes,
     date: new Date().toISOString(),
   };
+  
   writeContacts(contacts);
   res.redirect(`/contacts/${req.params.id}`);
 });
