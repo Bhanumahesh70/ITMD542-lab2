@@ -1,186 +1,29 @@
 [
   {
-    "id": "uerlct2hn",
-    "firstName": "Bhanumahesh ",
-    "lastName": "pps",
-    "email": "bhanumahesh70@gmail.com",
-    "notes": "lmlm",
-    "date": "2024-02-17T15:29:09.582Z"
-  },
-  {
-    "id": "shal0sfvf",
-    "firstName": "Bhanumahesh ",
-    "lastName": "ssss",
-    "email": "sss@hhh",
-    "notes": "sjsjsjsjsjs",
-    "date": "2024-02-17T15:28:33.398Z"
-  },
-  {
-    "id": "u08ej7g7n",
+    "id": "wol65m8ai",
     "firstName": "Bhanumahesh",
     "lastName": "Pasham",
     "email": "",
     "notes": "",
-    "date": "2024-02-17T15:31:05.000Z"
+    "date": "2024-02-17T17:56:27.625Z",
+    "deleted": false
   },
   {
-    "id": "pv9rwyo23",
-    "firstName": "<script>alert(\"Hello\");</script>",
-    "lastName": "Pasham",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:32:23.915Z"
-  },
-  {
-    "id": "dzh37luq7",
-    "firstName": "l",
-    "lastName": "Pasham",
-    "email": "bpasham@hawk.iit.edu",
-    "notes": "",
-    "date": "2024-02-17T15:33:40.961Z"
-  },
-  {
-    "id": "nep8xzgtu",
-    "firstName": "Bhanumahesh",
-    "lastName": "Pasham",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:33:50.041Z"
-  },
-  {
-    "id": "sqfkv7oef",
-    "firstName": "<script>alert(\"Hello\");</script>",
-    "lastName": "Pasham",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:34:07.658Z"
-  },
-  {
-    "id": "3ypq28q7h",
-    "firstName": "<script>alert(\"Hello\");</script>",
-    "lastName": "pplklk",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:35:32.464Z"
-  },
-  {
-    "id": "7lm1yhy34",
-    "firstName": "Bhanumahesh",
-    "lastName": "ccccc",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:36:03.702Z"
-  },
-  {
-    "id": "7z4d3atht",
+    "id": "e7scqwfoz",
     "firstName": "",
-    "lastName": "pplklk",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:43:14.689Z"
-  },
-  {
-    "id": "eqcgyzkd2",
-    "firstName": "background-color: red;",
-    "lastName": "background-color: red;",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:47:48.665Z"
-  },
-  {
-    "id": "14qummj37",
-    "firstName": "onmouseover=alert('Mouse over!')",
-    "lastName": "ss",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:48:06.340Z"
-  },
-  {
-    "id": "fupv8xvwq",
-    "firstName": "kokok",
     "lastName": "",
     "email": "",
     "notes": "",
-    "date": "2024-02-17T15:48:20.495Z"
+    "date": "2024-02-17T18:27:59.614Z",
+    "deleted": true
   },
   {
-    "id": "ztccz313i",
-    "firstName": "dd",
-    "lastName": "ddd",
+    "id": "8tnwzq957",
+    "firstName": "kpkpk",
+    "lastName": "lplpl",
     "email": "",
     "notes": "",
-    "date": "2024-02-17T15:48:38.865Z"
-  },
-  {
-    "id": "c91chpw7v",
-    "firstName": "dddreee",
-    "lastName": "eerr",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:56:01.407Z"
-  },
-  {
-    "id": "2wu74oqfp",
-    "firstName": "ff",
-    "lastName": "ggg",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:56:13.275Z"
-  },
-  {
-    "id": "vbnbu5v31",
-    "firstName": "ddddddddddd",
-    "lastName": "background-color: red;",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:57:09.084Z"
-  },
-  {
-    "id": "5mknhfmp0",
-    "firstName": "&lt;script&gt;alert(\"Hello\");&lt;/script&gt;",
-    "lastName": "ssss",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:57:21.199Z"
-  },
-  {
-    "id": "epo2yejlc",
-    "firstName": "Bhanumahesh",
-    "lastName": "onmouseover=alert('Mouse over!')",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T15:57:54.255Z"
-  },
-  {
-    "id": "9ob76tqd4",
-    "firstName": "onmouseover=alert('Mouse over!')",
-    "lastName": "Pasham",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T16:03:11.840Z"
-  },
-  {
-    "id": "6wgzga51y",
-    "firstName": "&lt;script&gt;alert(\"Hello\");&lt;/script&gt;",
-    "lastName": "pp",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T16:09:10.330Z"
-  },
-  {
-    "id": "kolwfyeus",
-    "firstName": "onmouseover=alert('Mouse over!')",
-    "lastName": "mm",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T16:09:25.803Z"
-  },
-  {
-    "id": "76lupd35g",
-    "firstName": "onmouseover=alert('Mouse over!')",
-    "lastName": "ff",
-    "email": "",
-    "notes": "",
-    "date": "2024-02-17T16:10:10.394Z"
+    "date": "2024-02-17T18:48:45.060Z",
+    "deleted": false
   }
 ]
